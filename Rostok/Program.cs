@@ -20,6 +20,12 @@ namespace Rostok
             //4.
             Console.WriteLine($"4. feladat: Nem 100g-os egység: {rostok.Where(x => x.Egység != "100g").Count()}");
 
+            //5.
+            double átlag = rostok
+                .Where(x => x.Kategória == "Friss gyümölcsök" && x.Egység == "100g")
+                .Average(x => x.RostInGr);
+            Console.WriteLine($"5. feladat: Friss gyümölcsök átlagos rosttartalma: {átlag:0.0000}g");
+
             Console.ReadKey();
         }
     }
