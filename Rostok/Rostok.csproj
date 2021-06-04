@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rost.cs" />
+    <Compile Include="RostComparerByCategory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

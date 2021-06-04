@@ -41,6 +41,22 @@ namespace Rostok
             else
                 szűrt.ForEach(x => Console.WriteLine($"\t{x.Név} @ {x.Kategória} @ {x.Egység} @ {x.RostInGr}"));
 
+            //7.
+            /* A .Select(x => x.Kategória)-ra azért van szükség, hogy egy egyszerű string-ekből álló
+             * listát kajunk, mert a Distinct() csak ilyeneket tud összehasonlítani. A másik lehetőség, hogy
+             * saját comparer osztályt készítünk, amivel két Rost típusú objektumot össze tudunk hasonlítani.
+             * Lásd: RostComparerByCategory class. Bővebben: https://dotnettutorials.net/lesson/linq-distinct-method/
+             */
+            //Select-el egyszerű string enumerable, majd Distinct(), végül Count():
+            Console.WriteLine($"7. feladat: Kategóriák száma: {rostok.Select(x => x.Kategória).Distinct().Count()}");
+
+            //Comparer class használatával:
+            RostComparerByCategory rc = new RostComparerByCategory();
+            Console.WriteLine($"7. feladat: Kategóriák száma: {rostok.Distinct(rc).Count()}");
+
+            //GroupBy()-al, működik, de nem túl szerencsés módszer:
+            Console.WriteLine($"7. feladat: Kategóriák száma: {rostok.GroupBy(x => x.Kategória).Select(gr => gr.First()).Count()}");
+
             Console.ReadKey();
         }
     }
