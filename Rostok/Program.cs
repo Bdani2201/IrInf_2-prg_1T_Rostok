@@ -17,6 +17,9 @@ namespace Rostok
             //3.
             Console.WriteLine($"3. feladat: Élelmiszerek száma: {rostok.Count}");
 
+            //4.
+            Console.WriteLine($"4. feladat: Nem 100g-os egység: {rostok.Where(x => x.Egység != "100g").Count()}");
+
             Console.ReadKey();
         }
     }
