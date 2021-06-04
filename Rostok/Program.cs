@@ -34,6 +34,13 @@ namespace Rostok
                 s = Console.ReadLine();
             } while (s.Length < 2);
 
+            //6. szűrés
+            List<Rost> szűrt = rostok.Where(x => x.Név.ToLower().Contains(s.ToLower())).ToList();
+            if (szűrt.Count == 0)
+                Console.WriteLine($"6. feldat: A keresés eredménytelen!");
+            else
+                szűrt.ForEach(x => Console.WriteLine($"\t{x.Név} @ {x.Kategória} @ {x.Egység} @ {x.RostInGr}"));
+
             Console.ReadKey();
         }
     }
