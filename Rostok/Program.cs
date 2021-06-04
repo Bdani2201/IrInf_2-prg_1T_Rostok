@@ -26,6 +26,14 @@ namespace Rostok
                 .Average(x => x.RostInGr);
             Console.WriteLine($"5. feladat: Friss gyümölcsök átlagos rosttartalma: {átlag:0.0000}g");
 
+            //6. bekérés
+            string s = "";
+            do
+            {
+                Console.Write($"6. feladat: Kérek egy karakterláncot: ");
+                s = Console.ReadLine();
+            } while (s.Length < 2);
+
             Console.ReadKey();
         }
     }
