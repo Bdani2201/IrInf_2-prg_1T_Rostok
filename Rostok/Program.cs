@@ -57,6 +57,15 @@ namespace Rostok
             //GroupBy()-al, működik, de nem túl szerencsés módszer:
             Console.WriteLine($"7. feladat: Kategóriák száma: {rostok.GroupBy(x => x.Kategória).Select(gr => gr.First()).Count()}");
 
+            //8.
+            Console.WriteLine($"8. feladat: Statisztika");
+            rostok
+                .GroupBy(x => x.Kategória)
+                .Select(gr => new { Kategória = gr.Key, db = gr.Count() })
+                //.OrderBy(x => x.db)
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t {x.Kategória} - {x.db}"));
+
             Console.ReadKey();
         }
     }
